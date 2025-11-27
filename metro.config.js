@@ -3,4 +3,16 @@ const { withNativeWind } = require("nativewind/metro");
 
 const config = getDefaultConfig(__dirname);
 
+// Thêm cấu hình cho SVG
+config.transformer.babelTransformerPath = require.resolve(
+  "react-native-svg-transformer"
+);
+
+config.resolver.assetExts = config.resolver.assetExts.filter(
+  (ext) => ext !== "svg"
+);
+
+config.resolver.sourceExts = [...config.resolver.sourceExts, "svg"];
+
+// Xuất config kết hợp NativeWind
 module.exports = withNativeWind(config, { input: "./global.css" });
