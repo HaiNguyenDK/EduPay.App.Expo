@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Image, Dimensions, Text } from "react-native";
+import { View, Image, Dimensions, Text, Button, Pressable } from "react-native";
 // @ts-ignore: allow importing SVG without type declarations (create a '*.svg' declaration file to properly type this)
-import EdupayLogo from "../assets/icons/EduPay-logo.svg";
+import TeacherIcon from "../assets/icons/teacher.svg";
+// @ts-ignore: allow importing SVG without type declarations (create a '*.svg' declaration file to properly type this)
+import ParentIcon from "../assets/icons/parent.svg";
 import Carousel from "react-native-reanimated-carousel";
 import Animated, {
   useAnimatedStyle,
@@ -9,6 +11,8 @@ import Animated, {
   withTiming,
   interpolateColor,
 } from "react-native-reanimated";
+import { useRouter } from "expo-router";
+import Header from "@/components/ui/Header";
 
 const { width } = Dimensions.get("window");
 
@@ -58,31 +62,29 @@ const PaginationItem = ({
 export default function Wellcome() {
   // THAY ĐỔI LỚN: Dùng useSharedValue thay cho useState
   const progress = useSharedValue(0);
+  const [rule, setRule] = React.useState<string>('');
+  const router = useRouter();
+
+  const handleChoose = (rule: string) => {
+    setRule(rule);
+    router.push("/(auth)/login"); //chuyển sang screen khác có thể back (replace chuyển sang screen khác mà k thể back)
+  };
 
   const renderItem = ({ item }: { item: any }) => (
-    <View className="flex justify-center items-center px-6">
+    <View className="flex justify-center items-center px-6 gap-2                       ">
       <Image
         source={item.img}
         resizeMode="cover"
       />
-      <Text>{item.title}</Text>
-      <Text className="text-center">{item.desc}</Text>
+      <Text className="text-3xl font-bold">{item.title}</Text>
+      <Text className="text-center text-base text-neutral-500">{item.desc}</Text>
     </View>
   );
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-white pb-20 font-roboto">
       {/* Header + Logo */}
-      <View className="relative">
-        <Image
-          source={require("../assets/images/bg-school.jpg")}
-          resizeMode="cover"
-          className="w-full"
-        />
-        <View className="absolute inset-0 justify-center items-center">
-          <EdupayLogo />
-        </View>
-      </View>
+      <Header />
 
       {/* Carousel + Pagination */}
       <View className="flex-1 justify-center items-center">
@@ -111,6 +113,28 @@ export default function Wellcome() {
           ))}
         </View>
       </View>
-    </View>
+      <View className="px-6 flex gap-2">
+        <Pressable
+          onPress={() => handleChoose('teacher')}
+          className="w-full  bg-red-700  p-5 rounded-full flex-row items-center justify-center gap-3"
+        >
+          <TeacherIcon />
+          <Text className="text-white text-xl">
+            Tôi là giáo viên
+          </Text>
+        </Pressable>
+
+
+        <Pressable
+          onPress={() => handleChoose('parent')}
+          className="w-full bg-white p-5 rounded-full flex-row items-center justify-center gap-3"
+        >
+          <ParentIcon />
+          <Text className="text-[#334155] text-xl">
+            Tôi là phụ huynh
+          </Text>
+        </Pressable>
+      </View >
+    </View >
   );
 }
