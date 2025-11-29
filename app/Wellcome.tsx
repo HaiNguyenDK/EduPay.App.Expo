@@ -5,6 +5,7 @@ import TeacherIcon from "../assets/icons/teacher.svg";
 // @ts-ignore: allow importing SVG without type declarations (create a '*.svg' declaration file to properly type this)
 import ParentIcon from "../assets/icons/parent.svg";
 import Carousel from "react-native-reanimated-carousel";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -65,8 +66,9 @@ export default function Wellcome() {
   const [rule, setRule] = React.useState<string>('');
   const router = useRouter();
 
-  const handleChoose = (rule: string) => {
+  const handleChoose = async (rule: string) => {
     setRule(rule);
+    await AsyncStorage.setItem("rule", rule);
     router.push("/(auth)/login"); //chuyển sang screen khác có thể back (replace chuyển sang screen khác mà k thể back)
   };
 

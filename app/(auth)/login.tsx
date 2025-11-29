@@ -13,7 +13,7 @@ import CustomButton from "@/components/ui/Button";
 import { useRouter } from "expo-router";
 import FaceIDModal from "@/components/ui/modals/FaceIDModal";
 
-const Account = {
+export const Account = {
   phone: "0337948102",
   password: "123456",
 }
