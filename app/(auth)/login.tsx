@@ -133,7 +133,7 @@ export default function Login() {
           </View>
         </View>
         {/* Fogot password */}
-        <View className="flex-row gap-5 align-middle justify-center text-center">
+        <View className="flex-row gap-3 align-middle justify-center text-center">
           <LockIcon />
           <Text className="text-[#64748B] font-roboto text-base">
             Quên mật khẩu ?

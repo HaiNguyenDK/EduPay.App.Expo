@@ -15,19 +15,21 @@ import FaceIDModal from "@/components/ui/modals/FaceIDModal";
 
 interface Props {
   title?: string;
+  sub?: string;
   children?: React.ReactNode;
 }
 
 
-const Layout: React.FC<Props> = ({ title, children }) => {
+const Layout: React.FC<Props> = ({ title, sub, children }) => {
   return (
     <View className="flex-1">
       <Header />
       {/* Body */}
-      <View className="px-6 flex-col gap-6">
+      <View className="px-6 flex-col gap-6 font-roboto">
         <Text className="text-2xl font-bold text-center mt-8">
           {title ? title : `Đăng nhập để sử dụng\n tiện ích EduPay`}
         </Text>
+        {sub && <Text className="text-sm text-center text-[#64748B]">{sub}</Text>}
         <View className="mb-4">
           {children}
         </View>
