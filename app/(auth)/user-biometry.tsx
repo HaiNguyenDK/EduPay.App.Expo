@@ -66,7 +66,7 @@ export default function UserBiometryScreen() {
           <View className="flex-1">
             <CustomButton
               title="Xác thực"
-              onPress={() => router.push("/(auth)/register/phone")}
+              onPress={() => router.push("/(auth)/user-infor")}
             />
           </View>
         </View>

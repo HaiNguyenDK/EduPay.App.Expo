@@ -12,7 +12,7 @@ const SplashScreen = () => {
   useEffect(() => {
     setTimeout(() => {
       // router.replace("/Wellcome"); // chuyển sang tabs
-      router.replace("/(auth)/user-biometry");
+      router.replace("/(auth)/user-infor");
     }, 2000);
   }, []);
 

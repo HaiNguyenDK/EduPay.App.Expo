@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
+        plus: ["PlusJakarta-Regular"],
       },
     },
   },

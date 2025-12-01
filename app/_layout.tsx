@@ -33,6 +33,7 @@ export default function RootLayout() {
         <Stack.Screen name="(auth)/register/otp" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)/register/set-password" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)/user-biometry" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)/user-infor" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>

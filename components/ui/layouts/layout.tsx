@@ -31,20 +31,20 @@ const Layout: React.FC<Props> = ({ title, sub, backButton, children, isFull }) =
       </View >
       {/* Body */}
       <View className={`px-6 flex-col gap-6 font-roboto border-t border-white bg-white z-10 ${isFull ? "-mt-48" : "-mt-4"} rounded-t-3xl h-screen`}>
-        <View className="flex-row justify-center items-center align-middle">
+        <View className="flex-row justify-center items-center align-middle mt-8">
           {backButton &&
             <Pressable
-              className="absolute left-4 rounded-full border border-[#64748B] px-6 py-4"
+              className="absolute left-0 rounded-full border border-[#CBD5E1] px-6 py-4"
               onPress={() => router.back()}>
               <RightArrow />
             </Pressable>}
-          <Text className="text-2xl font-bold text-center mt-8">
+          <Text className="text-2xl font-bold text-center">
             {title ? title : `Đăng nhập để sử dụng\n tiện ích EduPay`}
           </Text>
         </View>
 
         {sub && <Text className="text-sm text-center text-[#64748B]">{sub}</Text>}
-        <View className="mb-4">
+        <View className="mb-4 max-h-full min-h-[80%]">
           {children}
         </View>
       </View>
