@@ -6,6 +6,7 @@ import CustomButton from "@/components/ui/Button";
 import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import SuccessVerifyModal from "@/components/ui/modals/SuccessVerify";
 
 export default function UserInfor() {
   const [selectedValue, setSelectedValue] = useState("");
@@ -13,6 +14,8 @@ export default function UserInfor() {
   const [job, setJob] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [dob, setDob] = useState(Date.now());
+  const [isValidated, setIsValidated] = useState(false);
+
   return (
     <Layout
       title="Xác thực thông tin"
@@ -174,10 +177,16 @@ export default function UserInfor() {
               />
             </View>
             <View>
-              <CustomButton title="Tiếp tục" onPress={() => { }} />
+              <CustomButton title="Tiếp tục" onPress={() => { setIsValidated(true) }} />
             </View>
           </View>
         </ScrollView>
+        <SuccessVerifyModal
+          visible={isValidated}
+          onClose={() => { setIsValidated(false) }}
+          title="Xác thực thành công"
+          sub={`Bạn đã có thể truy cập và sử dụng \ncác dịch vụ của EduPay`}
+        />
       </KeyboardAvoidingView>
 
     </Layout >

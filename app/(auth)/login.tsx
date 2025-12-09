@@ -50,7 +50,7 @@ export default function Login() {
 
     if (phone === Account.phone && password === Account.password) {
       setError("")
-      router.push("/(tabs)");
+      router.push("/(parent-tabs)/home");
     } else if (phone == Account.phone && password !== Account.password) {
       setError("Mật khẩu không đúng");
     } else if (phone !== Account.phone && password == Account.password) {
@@ -135,7 +135,7 @@ export default function Login() {
         {/* Fogot password */}
         <View className="flex-row gap-3 align-middle justify-center text-center">
           <LockIcon />
-          <Text className="text-[#64748B] font-roboto text-base">
+          <Text className="text-[#64748B] font-roboto text-base" onPress={() => router.push("/(auth)/forgot-password/phone-input")}>
             Quên mật khẩu ?
           </Text>
         </View>

@@ -7,7 +7,7 @@ import { Account } from "../login";
 import { IRegister } from "@/types/models/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Phone() {
+export default function FPPhone() {
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -38,12 +38,14 @@ export default function Phone() {
     setError("")
     await AsyncStorage.setItem("phone", phone);
     router.push({
-      pathname: "/register/otp",
+      pathname: "/(auth)/forgot-password/otp-fp",
     });
   }
 
   return (
-    <Layout title={"Đăng ký để sử dụng\n tiện ích EduPay"}>
+    <Layout title="Quên mật khẩu"
+      sub={"Nhập số điện thoại bạn dùng để đăng ký tài khoản. \nChúng tôi sẽ gửi mã OTP đến số điện thoại này."}
+    >
       <View className=" text-base mt-4 flex-col gap-4">
         {/* phone */}
         <View className={`w-full flex-row items-center border border-[#CFD8E1] rounded-2xl px-4 h-16 ${error ? "border-red-500" : ""}`}>
@@ -78,12 +80,12 @@ export default function Phone() {
           </View>
           <View className="flex-1">
             <CustomButton
-              title="Đăng ký"
+              title="Xác nhận"
               onPress={handeLogin}
             />
           </View>
         </View>
       </View>
-    </Layout >
+    </ Layout >
   )
 }

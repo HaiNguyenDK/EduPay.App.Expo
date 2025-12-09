@@ -34,6 +34,12 @@ export default function RootLayout() {
         <Stack.Screen name="(auth)/register/set-password" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)/user-biometry" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)/user-infor" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)/forgot-password/phone-input" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)/forgot-password/otp-fp" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)/forgot-password/reset-password" options={{ headerShown: false }} />
+
+        <Stack.Screen name="(parent-tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/search-student" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
