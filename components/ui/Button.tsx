@@ -19,7 +19,7 @@ const CustomButton: React.FC<Props> = ({ title, onPress, className, backgroundCo
         ${!isDisabled ? (backgroundColor ? backgroundColor : "bg-[#EA3E3E]") : "bg-[#1D1B201F]"}
         ${borderColor ? `border ${borderColor}` : ""}
         ${className}
-        px-4 py-4 rounded-full w-full
+        px-4 py-4 rounded-full w-auto
         `}
       disabled={isDisabled}
     >
