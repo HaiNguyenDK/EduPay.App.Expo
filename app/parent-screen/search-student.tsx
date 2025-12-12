@@ -9,8 +9,19 @@ import { useState } from "react";
 import { router } from "expo-router";
 import Toast from 'react-native-toast-message';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const data = [
+export interface IUserData {
+  id: number;
+  code: number;
+  avt: any;
+  name: string;
+  class: string;
+  birthday: string;
+  school: string;
+}
+
+const data: IUserData[] = [
   {
     id: 1,
     code: 13843294234422,
@@ -18,6 +29,7 @@ const data = [
     name: "Nguyen Van A",
     class: "8A1",
     birthday: "01/01/2010",
+    school: " THPT Nguyễn Bỉnh Khiêm",
   },
   {
     id: 2,
@@ -26,6 +38,7 @@ const data = [
     name: "Nguyen Van B",
     class: "8A2",
     birthday: "11/02/2010",
+    school: " THPT Chu Văn An",
   },
   {
     id: 3,
@@ -34,6 +47,7 @@ const data = [
     name: "Nguyen Van C",
     class: "8A2",
     birthday: "11/02/2010",
+    school: " THPT Nguyễn Du",
   },
   {
     id: 4,
@@ -42,6 +56,7 @@ const data = [
     name: "Nguyen Van D",
     class: "8A2",
     birthday: "11/02/2010",
+    school: " THPT Phan Đăng Lưu",
   },
   {
     id: 5,
@@ -50,12 +65,13 @@ const data = [
     name: "Nguyen Van E",
     class: "8A2",
     birthday: "11/02/2010",
+    school: " THPT Nguyễn Huệ",
   }
 ]
 
 const SearchStudent = () => {
   const [type, setType] = useState<boolean>(true);
-  const [studentId, setStudentId] = useState<number | null>(null);
+  const [student, setStudent] = useState<IUserData | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [date, setDate] = useState<Date | null>(null);
   const [name, setName] = useState<string>("");
@@ -74,16 +90,17 @@ const SearchStudent = () => {
     setName(cleaned);
   };
 
-  const handleSelectStudent = () => {
-    if (!studentId) {
+  const handleSelectStudent = async () => {
+    if (!student) {
       Toast.show({
         type: 'error',
         text1: 'Vui lòng chọn học sinh tra cứu',
       });
       return;
     }
-    // router.push(`/parent-screen/search-student/${id}`);
-    console.log("Chọn học sinh hehe");
+    // // router.push(`/parent-screen/search-student/${id}`);
+    await AsyncStorage.setItem("student", JSON.stringify(student));
+    router.push("/(parent-tabs)/home");
   }
 
   return (
@@ -168,9 +185,9 @@ const SearchStudent = () => {
           <View className="flex flex-col gap-4 mt-4">
             {data.map((item) => (
               <Pressable key={item.id}
-                className={`flex flex-col justify-between border ${studentId === item.id ? "border-[#EA3E3E]" : "border-[#CFD8E1]"} 
+                className={`flex flex-col justify-between border ${student?.id === item.id ? "border-[#EA3E3E]" : "border-[#CFD8E1]"} 
                 rounded-3xl p-6 gap-2 bg-white`}
-                onPress={() => setStudentId(item.id)}
+                onPress={() => setStudent(item)}
               >
                 <View className="flex flex-row gap-4 items-center">
                   <Image source={item.avt} />
@@ -213,8 +230,4 @@ const SearchStudent = () => {
   );
 }
 
-export default SearchStudent
-
-function dayjs(): any {
-  throw new Error("Function not implemented.");
-}
+export default SearchStudent;

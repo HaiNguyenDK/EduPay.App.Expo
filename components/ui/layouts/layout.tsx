@@ -2,7 +2,7 @@ import Header from "@/components/ui/Header";
 import { View, Text, Pressable, Image } from "react-native";
 import { useRouter } from "expo-router";
 // @ts-ignore: allow importing SVG without type declarations (create a '*.svg' declaration file to properly type this)
-import RightArrow from "../../../assets/icons/right-arrow.svg";
+import RightArrow from "../../../assets/icons/left-arrow.svg";
 // @ts-ignore: allow importing SVG without type declarations (create a '*.svg' declaration file to properly type this)
 import EdupayLogo from "../../../assets/icons/EduPay-logo.svg";
 

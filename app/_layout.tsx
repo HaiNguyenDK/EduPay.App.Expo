@@ -41,6 +41,16 @@ export default function RootLayout() {
 
         <Stack.Screen name="(parent-tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="parent-screen/search-student" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/list-bill" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/food" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/schedule" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/leave" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/attendance" options={{ headerShown: false }} />
+
+        {/* <Stack.Screen name="parent-screen/bill/list-bill" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="parent-screen/bill/detail-bill" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/bill/package-payment" options={{ headerShown: false }} />
+
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
