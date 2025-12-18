@@ -48,8 +48,11 @@ export default function RootLayout() {
         <Stack.Screen name="parent-screen/attendance" options={{ headerShown: false }} />
 
         {/* <Stack.Screen name="parent-screen/bill/list-bill" options={{ headerShown: false }} /> */}
-        <Stack.Screen name="parent-screen/bill/detail-bill" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/bill/detail-bill" options={{ headerShown: false, presentation: "modal" }} />
         <Stack.Screen name="parent-screen/bill/package-payment" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/bill/package-payment-type" options={{ headerShown: false }} />
+        <Stack.Screen name="parent-screen/bill/payment-detail" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="parent-screen/bill/package-payment-success" options={{ headerShown: false }} /> */}
 
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
