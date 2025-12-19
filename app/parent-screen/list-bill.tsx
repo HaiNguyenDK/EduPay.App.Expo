@@ -150,7 +150,7 @@ const ListBill = () => {
                               </Text>
                             </View>
                           </View>
-                          <Text className="font-roboto text-xl font-bold text-neutral-800">{formatNumber(item?.total || 0)} đ</Text>
+                          <Text className="font-roboto text-xl font-bold text-neutral-800">{formatNumber(item?.price || 0)} đ</Text>
                         </View>
                       </View>
 
@@ -169,7 +169,7 @@ const ListBill = () => {
                           disabled={item.status === "Đã đóng" ? true : false}
                           onPress={() => router.push({
                             pathname: "/parent-screen/bill/detail-bill",
-                            params: { id: item?.id },
+                            params: { item: JSON.stringify(item) },
                           })}>
                           <CoinIcon />
                           <Text className="text-white font-bold font-roboto">Đóng tiền</Text>

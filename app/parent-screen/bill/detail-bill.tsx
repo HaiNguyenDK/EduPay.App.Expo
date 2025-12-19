@@ -12,15 +12,29 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { IUserData } from "../search-student";
 import Footer from "@/components/ui/layouts/footer";
+import { router, useLocalSearchParams } from "expo-router";
+import { PackagePayment } from "@/types/models/package";
 // @ts-ignore: allow importing SVG without type declarations (create a '*.svg' declaration file to properly type this)
 
 const DetailBill = () => {
   const [student, setStudent] = useState<IUserData | null>();
+  const { item } = useLocalSearchParams();
+  const [currentItem, setCurrentItem] = useState<PackagePayment>();
+
+  useEffect(() => {
+    if (!item) return;
+
+    const parsedItem = JSON.parse(item as string) as PackagePayment;
+    setCurrentItem(parsedItem);
+
+  }, [item]);
+
+
   useEffect(() => {
     const loadStudent = async () => {
       try {
         const jsonValue = await AsyncStorage.getItem('student');
-        // console.log(jsonValue);
+        console.log(jsonValue);
         if (jsonValue != null) {
           setStudent(JSON.parse(jsonValue));
         }
@@ -133,16 +147,15 @@ const DetailBill = () => {
           <Text className="text-xl font-bold text-[#EA3E3E]">44.398.345 đ</Text>
         </View>
         <Pressable className={`flex flex-row bg-[#EA3E3E] rounded-3xl px-4 py-4 gap-1 justify-center`}
-        // onPress={() => router.push({
-        //   pathname: "/parent-screen/bill/detail-bill",
-        //   params: { id: item?.id },
-        // })}
+          onPress={() => router.push({
+            pathname: "/parent-screen/bill/payment-detail",
+            params: { item: JSON.stringify(currentItem) }
+          })}
         >
           <CoinIcon />
           <Text className="text-white font-bold font-roboto">Đóng tiền</Text>
         </Pressable>
-      </View>
-
+      </View >
     </>
 
   );

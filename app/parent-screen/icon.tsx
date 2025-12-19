@@ -9,4 +9,10 @@ export const TemIcon = ({ color = "#000" }) => (
   </Svg>
 );
 
-export default { TemIcon };
+export const ListBankLogo = [
+  { url: require("../../assets/images/hd-bank-logo.jpg") },
+  { url: require("../../assets/images/vp-bank-logo.jpg") },
+  { url: require("../../assets/images/techcombank-logo.jpg") }
+]
+
+export default { TemIcon, ListBankLogo };

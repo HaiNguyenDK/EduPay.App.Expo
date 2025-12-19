@@ -50,7 +50,7 @@ const PaymentType = () => {
       return;
     } else {
       router.push({
-        pathname: "/parent-screen/bill/package-payment-type",
+        pathname: "/parent-screen/bill/payment-detail",
         params: { item: JSON.stringify(checkedPackage) },
       });
     }

@@ -3,28 +3,28 @@ export const billData = [
     id: 1,
     title: "Phiếu thu kỳ 01 - 2023",
     desc: "Học phí",
-    total: 1500000,
+    price: 1500000,
     status: "Chưa đóng"
   },
   {
     id: 2,
     title: "Phiếu thu kỳ 02 - 2023",
     desc: "Học phí",
-    total: 1400000,
+    price: 1400000,
     status: "Đang đóng"
   },
   {
     id: 3,
     title: "Phiếu thu kỳ 03 - 2023",
     desc: "Học phí",
-    total: 1300000,
+    price: 1300000,
     status: "Đã đóng"
   },
   {
     id: 4,
     title: "Phiếu thu kỳ 04 - 2023",
     desc: "Học phí",
-    total: 15600000,
+    price: 15600000,
     status: "Đã đóng"
   },
 ]

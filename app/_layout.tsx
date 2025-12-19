@@ -52,7 +52,7 @@ export default function RootLayout() {
         <Stack.Screen name="parent-screen/bill/package-payment" options={{ headerShown: false }} />
         <Stack.Screen name="parent-screen/bill/package-payment-type" options={{ headerShown: false }} />
         <Stack.Screen name="parent-screen/bill/payment-detail" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="parent-screen/bill/package-payment-success" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="parent-screen/bill/payment-result" options={{ headerShown: false }} />
 
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
