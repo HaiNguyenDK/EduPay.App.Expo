@@ -8,7 +8,7 @@ interface Props {
 }
 const Footer: React.FC<Props> = ({ title, children }) => {
   return (
-    <View className="absolute flex flex-col gap-2 left-0 bottom-14 w-full">
+    <View className="absolute flex flex-col gap-2 left-0 bottom-4 w-full">
       {title &&
         <Text className="text-sm text-neutral-500">
           Bằng cách thanh toán, bạn đồng ý với các <Text className="text-[#3699FF]">điều khoản và chính sách này</Text> của EduPay

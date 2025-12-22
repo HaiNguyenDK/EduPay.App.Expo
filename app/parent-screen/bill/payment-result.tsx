@@ -30,7 +30,7 @@ const PaymentDetail = () => {
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "padding"} // iOS: padding, Android: height
         keyboardVerticalOffset={Platform.OS === "ios" ? 160 : 160} // điều chỉnh offset nếu cần
-        className="mb-[160px] mt-5"
+        className="mb-[130px] mt-5"
       >
         <ScrollView
           className="px-2"

@@ -26,7 +26,7 @@ const ListBill = () => {
   const [active, setActive] = useState(0);
   const indicator = useRef(new Animated.Value(0)).current;
   const width = useWindowDimensions().width;
-  console.log(width);
+  // console.log(width);
 
   useEffect(() => {
     const loadStudent = async () => {
@@ -112,7 +112,7 @@ const ListBill = () => {
             style={{ flex: 1 }}
             behavior={Platform.OS === "ios" ? "padding" : "padding"} // iOS: padding, Android: height
             keyboardVerticalOffset={Platform.OS === "ios" ? 160 : 160} // điều chỉnh offset nếu cần
-            className="mb-[130px] mt-5"
+            className="mb-[120px] mt-5"
           >
             <ScrollView
               className="px-2"
@@ -200,7 +200,6 @@ const ListBill = () => {
           </Pressable>
         </Footer>
       </>
-
     </Layout >
   );
 }
